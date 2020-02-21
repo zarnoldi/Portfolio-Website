@@ -1,8 +1,12 @@
 
  // Listen for Calculate
- document.getElementById('loan-form').addEventListener('submit', CalculateResults);
+ document.getElementById('loan-form').addEventListener('submit', function(){
 
- function CalculateResults(e){
+
+
+ 
+
+ function CalculateResults(){
     console.log('Calculate');
     
     // Input UI
@@ -13,7 +17,7 @@
     const UIMonthlyPayment = document.getElementById('Monthly-payment');
     const UITotalInterest = document.getElementById('Total-Interest');
     const UITotalPayment = document.getElementById('Total Payment');
-    // Input values
+    // Input values from UI Input
     const Principal = parseFloat(UIamount.value);
     const CalculatedInterest = parseFloat(UIInterest.value)/100/12;
     const CalculatedPayment = parseFloat(UIYears.value)*12; 
@@ -57,3 +61,4 @@
 
    e.preventDefault();
   }
+}
