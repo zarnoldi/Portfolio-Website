@@ -100,6 +100,6 @@ return currentPostion;
 
 
 
-const rover1 = new Rover('LMR');
+const rover1 = new Rover('LMRLMR', [0,0], 'N');
 
-console.log(rover1);
+console.log(rover1.GetCurrentDirection(['L','M','R','M','L','R','M']));
