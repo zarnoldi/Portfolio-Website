@@ -56,32 +56,33 @@ Rover.prototype.GetCurrentPostion = function(input){
 
     Xcordindate = this.IntPostion[0];
     Ycordindate = this.IntPostion[1];
+    let currentPostion;
 
     input.forEach(function(command){
 
         if (command == 'M' && this.Direction == 'N'){
 
-            NewYPostion = Ycordindate + 1;
+            NewYPostion = this.Ycordindate + 1;
 
-            currentPostion = [Xcordindate, NewYPostion];
+            currentPostion = [this.Xcordindate, NewYPostion];
 
         } else if (command == 'M' && this.Direction == 'E'){
 
-            NewXPostion = Xcordindate + 1;
+            NewXPostion = this.Xcordindate + 1;
 
-            currentPostion = [NewXPostion, Ycordindate];
+            currentPostion = [NewXPostion, this.Ycordindate];
 
         }else if (command == 'M' && this.Direction == 'S'){
 
-            NewYPostion = Ycordindate - 1;
+            NewYPostion = this.Ycordindate - 1;
 
-            currentPostion = [Xcordindate, NewYPostion];
+            currentPostion = [this.Xcordindate, NewYPostion];
     
         }else if (command == 'M' && this.Direction == 'W'){
 
-            NewXPostion = Xcordindate -1;
+            NewXPostion = this.Xcordindate -1;
 
-            currentPostion = [NewXPostion, Ycordindate];
+            currentPostion = [NewXPostion, this.Ycordindate];
 
         }else {
 
@@ -92,14 +93,11 @@ Rover.prototype.GetCurrentPostion = function(input){
     });
 
 return currentPostion;
-}
+};
 
 
-
-
-
-
-
-const rover1 = new Rover('LMRLMR', [0,0], 'N');
+const rover1 = new Rover('MMMMMM', [0,0], 'N');
 
 console.log(rover1.GetCurrentDirection(['L','M','R','M','L','R','M']));
+
+console.log(rover1.GetCurrentPostion(['L','M','R','M','L','R','M']));
